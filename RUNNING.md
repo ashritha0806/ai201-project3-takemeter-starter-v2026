@@ -45,11 +45,11 @@ once — downloading 1.6 GB during class is not how you want to spend a breakout
 `test.py` tells you, and so does section 1 of the notebook. There are three
 possibilities and all of them work:
 
-| Device | What it means | Speed |
-|---|---|---|
-| `cuda` | An NVIDIA GPU | Under a minute per seed |
-| `mps` | Apple Silicon — M1 and later | Fast; much quicker than the CPU path |
-| `cpu` | Everything else | A few minutes per seed. Three seeds is a coffee, not an afternoon |
+| Device | What it means                | Speed                                                             |
+| ------ | ---------------------------- | ----------------------------------------------------------------- |
+| `cuda` | An NVIDIA GPU                | Under a minute per seed                                           |
+| `mps`  | Apple Silicon — M1 and later | Fast; much quicker than the CPU path                              |
+| `cpu`  | Everything else              | A few minutes per seed. Three seeds is a coffee, not an afternoon |
 
 ⚠️ **Write down which one you get.** It is part of your result, not a detail
 about your laptop. Two people running the same notebook on the same data with
@@ -98,15 +98,15 @@ for you.
 
 ### What's in it
 
-| Section | When | What it does |
-|---|---|---|
-| 1. Setup | unit 5 | Reports your device, and confirms it can see your files |
-| 2. Your labels | unit 5 | `LABELS`, the settings, and **the seed** |
-| 3. Split | unit 5 | 70/15/15, stratified |
-| 4. Train | unit 5 | Minutes on a laptop CPU, under one on a GPU |
-| 5. Results | unit 5 | Writes `results.json` and `test_split.csv` |
-| 6. Three seeds | **unit 6** | Retrains three times in one cell |
-| 7. Confusion matrix | **unit 6** | Prints a markdown table to paste |
+| Section             | When       | What it does                                            |
+| ------------------- | ---------- | ------------------------------------------------------- |
+| 1. Setup            | unit 5     | Reports your device, and confirms it can see your files |
+| 2. Your labels      | unit 5     | `LABELS`, the settings, and **the seed**                |
+| 3. Split            | unit 5     | 70/15/15, stratified                                    |
+| 4. Train            | unit 5     | Minutes on a laptop CPU, under one on a GPU             |
+| 5. Results          | unit 5     | Writes `results.json` and `test_split.csv`              |
+| 6. Three seeds      | **unit 6** | Retrains three times in one cell                        |
+| 7. Confusion matrix | **unit 6** | Prints a markdown table to paste                        |
 
 Sections 6 and 7 are next unit. Nothing in unit 5 needs them.
 
@@ -116,11 +116,11 @@ Sections 6 and 7 are next unit. Nothing in unit 5 needs them.
 
 `labels.csv` in your repo. Three columns:
 
-| Column | What's in it |
-|---|---|
-| `text` | The whole post. Don't trim it to fit |
-| `label` | One of your labels, spelled **exactly** as in `LABELS` |
-| `note` | `cold` for the 20 you labelled unaided, and a note on any you pre-labelled |
+| Column  | What's in it                                                               |
+| ------- | -------------------------------------------------------------------------- |
+| `text`  | The whole post. Don't trim it to fit                                       |
+| `label` | One of your labels, spelled **exactly** as in `LABELS`                     |
+| `note`  | `cold` for the 20 you labelled unaided, and a note on any you pre-labelled |
 
 `labels_template.csv` shows the shape. `data/practice_labels.csv` is the set
 used in class — 60 posts from a fictional running forum, already labelled, so
@@ -133,13 +133,13 @@ split, and splitting twice is how examples leak between training and test.
 
 Section 2's last cell looks for the things that break a run or quietly ruin it:
 
-| It says | What it means |
-|---|---|
-| `[FIX ME] Labels in your CSV that aren't in LABELS` | A spelling or capital mismatch. `Hot_take` and `hot_take` are different |
-| `[FIX ME] 'x' is 78% of your data` | Over the brief's 70% cap. The model will learn to guess it |
-| `[look at] N duplicate posts` | They'll land in different splits and inflate your score. That's leakage |
-| `[look at] Only 12 examples of 'x'` | Its test split will be tiny, so its F1 will jump between seeds |
-| `[look at] 60 rows` | Under the submission floor. Training still runs — fine for the practice data |
+| It says                                             | What it means                                                                |
+| --------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `[FIX ME] Labels in your CSV that aren't in LABELS` | A spelling or capital mismatch. `Hot_take` and `hot_take` are different      |
+| `[FIX ME] 'x' is 78% of your data`                  | Over the brief's 70% cap. The model will learn to guess it                   |
+| `[look at] N duplicate posts`                       | They'll land in different splits and inflate your score. That's leakage      |
+| `[look at] Only 12 examples of 'x'`                 | Its test split will be tiny, so its F1 will jump between seeds               |
+| `[look at] 60 rows`                                 | Under the submission floor. Training still runs — fine for the practice data |
 
 ---
 
@@ -190,12 +190,12 @@ python agreement.py
 Four files. The posts and the rules ship with the starter; only the answers
 come from your TF, and only after yours are done. Posts and labels join on `id`:
 
-| File | Where it comes from |
-|---|---|
-| `data/staff_taxonomy.md` | **Ships in the starter.** The three definitions and the decision rules staff used. Read it first — you label under *these*, not your own |
-| `data/staff_posts.csv` | **Ships in the starter.** The 30 posts, no labels |
-| `data/staff_labels.csv` | **Your TF gives you this**, once your own labels are done |
-| `my_staff_labels.csv` | You make it: the same posts, labelled by you, with `text` and `label` columns |
+| File                     | Where it comes from                                                                                                                      |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `data/staff_taxonomy.md` | **Ships in the starter.** The three definitions and the decision rules staff used. Read it first — you label under _these_, not your own |
+| `data/staff_posts.csv`   | **Ships in the starter.** The 30 posts, no labels                                                                                        |
+| `data/staff_labels.csv`  | **Your TF gives you this**, once your own labels are done                                                                                |
+| `my_staff_labels.csv`    | You make it: the same posts, labelled by you, with `text` and `label` columns                                                            |
 
 **You label the staff set under the staff taxonomy, not the one you designed in
 unit 5.** Your own taxonomy was yours to invent; this one is somebody else's to
@@ -225,14 +225,14 @@ README has a block to fill in for each one.
 
 ## Every command
 
-| Command | What it does |
-|---|---|
-| `python test.py` | Checks your environment |
-| `python baseline.py` | The zero-shot baseline on your held-out posts — **unit 6** |
-| `python agreement.py` | Your labels vs. the staff set — **unit 6** |
-| `python baseline.py --help` | All the options |
-| Notebook: sections 1–5 | Train once, write `results.json` — **unit 5** |
-| Notebook: sections 6–7 | Three seeds and the matrix — **unit 6** |
+| Command                     | What it does                                               |
+| --------------------------- | ---------------------------------------------------------- |
+| `python test.py`            | Checks your environment                                    |
+| `python baseline.py`        | The zero-shot baseline on your held-out posts — **unit 6** |
+| `python agreement.py`       | Your labels vs. the staff set — **unit 6**                 |
+| `python baseline.py --help` | All the options                                            |
+| Notebook: sections 1–5      | Train once, write `results.json` — **unit 5**              |
+| Notebook: sections 6–7      | Three seeds and the matrix — **unit 6**                    |
 
 ---
 
@@ -240,69 +240,69 @@ README has a block to fill in for each one.
 
 ### Unit 5 — the build
 
-| Milestone | What you're doing | Where |
-|---|---|---|
-| 1 | Pick a community and read it | Nothing to run. Read for 20 minutes |
-| 2 | Design your labels | README, **Label Taxonomy** |
-| 3 | Write your criteria | `criteria.md` — all five are yours this time |
-| 4 | Collect and label 200 | `labels.csv` |
-| 5 | Run the training | Notebook, sections 1–5 |
-| 6 | Write it up | README |
+| Milestone | What you're doing            | Where                                        |
+| --------- | ---------------------------- | -------------------------------------------- |
+| 1         | Pick a community and read it | Nothing to run. Read for 20 minutes          |
+| 2         | Design your labels           | README, **Label Taxonomy**                   |
+| 3         | Write your criteria          | `criteria.md` — all five are yours this time |
+| 4         | Collect and label 200        | `labels.csv`                                 |
+| 5         | Run the training             | Notebook, sections 1–5                       |
+| 6         | Write it up                  | README                                       |
 
 ### Unit 6 — the test
 
-| Milestone | What you're doing | Where |
-|---|---|---|
-| 1 | Run the baseline | `baseline.py` |
-| 2 | Retrain three times, read the matrix | Notebook, sections 6–7 |
-| 3 | Check yourself against the staff labels | `agreement.py` |
-| 4 | Call each criterion, diagnose the misses | README |
-| 5 | Fix one thing and re-run | Notebook, section 6 with `RUN_LABEL = "after"` |
-| 6 | Say what's still broken | README |
+| Milestone | What you're doing                        | Where                                          |
+| --------- | ---------------------------------------- | ---------------------------------------------- |
+| 1         | Run the baseline                         | `baseline.py`                                  |
+| 2         | Retrain three times, read the matrix     | Notebook, sections 6–7                         |
+| 3         | Check yourself against the staff labels  | `agreement.py`                                 |
+| 4         | Call each criterion, diagnose the misses | README                                         |
+| 5         | Fix one thing and re-run                 | Notebook, section 6 with `RUN_LABEL = "after"` |
+| 6         | Say what's still broken                  | README                                         |
 
 ---
 
 ## Where everything lives
 
-| File | What it does |
-|---|---|
-| `takemeter.ipynb` | The training notebook. Runs here, on your machine |
-| `baseline.py` | The zero-shot baseline. Runs on your machine |
-| `agreement.py` | Your labels against the staff set. **Unit 6** |
-| `criteria.md` | Your five criteria. **You write all five** |
-| `labels.csv` | Your labelled data. **You create this** |
-| `labels_template.csv` | The shape it needs |
-| `label_definitions.txt` | Your definitions, for the baseline |
-| `data/practice_labels.csv` | The 60-post practice set used in class |
-| `data/staff_taxonomy.md` | The staff set's definitions and decision rules. Ships here |
-| `data/staff_posts.csv` | The staff set's 30 posts. Ships here |
-| `data/staff_labels.csv` | The staff set's labels. **Your TF gives you this** |
-| `README.md` | Your submission |
-| `results.json` | Written and committed by the notebook |
-| `test_split.csv` | Your held-out posts, committed by the notebook. `baseline.py` reads it |
-| `results_three_seeds_before.json` | Written and committed in unit 6, section 6 |
-| `results_three_seeds_after.json` | The same cell re-run with `RUN_LABEL = "after"`, in Milestone 5 |
-| `baseline_results.json` | Written by `baseline.py`. **Commit it** |
-| `agreement_results.json` | Written by `agreement.py`. **Commit it** |
-| `my_staff_labels.csv` | Your labels on the staff set. **You create this** |
+| File                              | What it does                                                           |
+| --------------------------------- | ---------------------------------------------------------------------- |
+| `takemeter.ipynb`                 | The training notebook. Runs here, on your machine                      |
+| `baseline.py`                     | The zero-shot baseline. Runs on your machine                           |
+| `agreement.py`                    | Your labels against the staff set. **Unit 6**                          |
+| `criteria.md`                     | Your five criteria. **You write all five**                             |
+| `labels.csv`                      | Your labelled data. **You create this**                                |
+| `labels_template.csv`             | The shape it needs                                                     |
+| `label_definitions.txt`           | Your definitions, for the baseline                                     |
+| `data/practice_labels.csv`        | The 60-post practice set used in class                                 |
+| `data/staff_taxonomy.md`          | The staff set's definitions and decision rules. Ships here             |
+| `data/staff_posts.csv`            | The staff set's 30 posts. Ships here                                   |
+| `data/staff_labels.csv`           | The staff set's labels. **Your TF gives you this**                     |
+| `README.md`                       | Your submission                                                        |
+| `results.json`                    | Written and committed by the notebook                                  |
+| `test_split.csv`                  | Your held-out posts, committed by the notebook. `baseline.py` reads it |
+| `results_three_seeds_before.json` | Written and committed in unit 6, section 6                             |
+| `results_three_seeds_after.json`  | The same cell re-run with `RUN_LABEL = "after"`, in Milestone 5        |
+| `baseline_results.json`           | Written by `baseline.py`. **Commit it**                                |
+| `agreement_results.json`          | Written by `agreement.py`. **Commit it**                               |
+| `my_staff_labels.csv`             | Your labels on the staff set. **You create this**                      |
 
 ---
 
 ## When something goes wrong
 
-| What you see | What it means |
-|---|---|
-| Section 1 says `cpu` | Correct on most laptops, and fine. A three-seed run is minutes. Nothing to fix |
-| `ModuleNotFoundError` in the notebook | Wrong kernel. Pick the `.venv` inside this project, top right in VS Code |
-| `FileNotFoundError: labels.csv` | Either you haven't created it yet, or the notebook is open from a copy rather than from your repo. Section 1's second cell says which |
-| The machine crawls during training | Close the browser and anything heavy. Training peaks around 2.1 GB |
-| `KeyError` during training | A label in your CSV isn't in `LABELS`. Check capitals and spaces |
-| Training takes an hour | You're on CPU. See the first row |
-| Accuracy swings 15 points between seeds | Your dataset is too small or too lopsided for a stable measure. **That's a diagnosis, not a mistake** — write it down |
-| A label's F1 is 0.00 | It probably has almost nothing in the test split. Check the split table |
-| `baseline.py` says no `test_split.csv` | Unit 5's results section never finished. Re-run it, or note in your README that your comparison isn't like-for-like |
-| `baseline.py` is downloading forever | First run only, ~1.6 GB. Do it before class |
-| The baseline is very slow | Expected. A few seconds per post is what no fine-tuning costs at runtime |
+| What you see                            | What it means                                                                                                                         |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Section 1 says `cpu`                    | Correct on most laptops, and fine. A three-seed run is minutes. Nothing to fix                                                        |
+| `ModuleNotFoundError` in the notebook   | Wrong kernel. Pick the `.venv` inside this project, top right in VS Code                                                              |
+| `FileNotFoundError: labels.csv`         | Either you haven't created it yet, or the notebook is open from a copy rather than from your repo. Section 1's second cell says which |
+| The machine crawls during training      | Close the browser and anything heavy. Training peaks around 2.1 GB                                                                    |
+| `KeyError` during training              | A label in your CSV isn't in `LABELS`. Check capitals and spaces                                                                      |
+| Training takes an hour                  | You're on CPU. See the first row                                                                                                      |
+| Accuracy swings 15 points between seeds | Your dataset is too small or too lopsided for a stable measure. **That's a diagnosis, not a mistake** — write it down                 |
+| A label's F1 is 0.00                    | It probably has almost nothing in the test split. Check the split table                                                               |
+| `baseline.py` says no `test_split.csv`  | Unit 5's results section never finished. Re-run it, or note in your README that your comparison isn't like-for-like                   |
+| `baseline.py` is downloading forever    | First run only, ~1.6 GB. Do it before class                                                                                           |
+| The baseline is very slow               | Expected. A few seconds per post is what no fine-tuning costs at runtime                                                              |
 
 The three usual causes when the notebook fails, in order: the kernel is the
 system Python rather than this project's `.venv`, the notebook was opened from
