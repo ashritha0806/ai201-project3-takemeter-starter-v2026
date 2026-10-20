@@ -253,15 +253,19 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- _What I asked for:_
-- _What came back:_
-- _What I changed:_
+- _What I asked for:_ I asked the AI to pre-label the 180 posts I had collected, using my own label definitions and my delete the question decision rule.
+
+- _What came back:_ It returned a label for every post, in four batches, flagging the borderline rows and giving a reason for each one it hesitated on.
+
+- _What I changed:_ I read the pre-labelled posts and corrected the ones I disagreed with. I changed the Twilight Imperium on BGA post to `statement`, and the "favorite game theme" post and the Pillars of Fate vs. Zenith post to `experience`, and I kept the two playtest announcements as `statement`.
 
 **Moment 2**
 
-- _What I asked for:_
-- _What came back:_
-- _What I changed:_
+- _What I asked for:_ I gave my label distinctions, my definitions, and acceptance criteria written by me, and asked the AI to pressure-test them: to argue against each one and find where labels overlapped or a target was too easy or too hard.
+
+- _What came back:_ It showed that my original `opinion` and `reaction` labels overlapped too much to stay separate, and it challenged each of my criteria targets with the strongest case for and against it.
+
+- _What I changed:_ I merged `opinion` and `reaction` into a single `experience` label and wrote the delete the question rule for the question/experience boundary.
 
 **Pre-labelling disclosure:**
 
