@@ -51,7 +51,7 @@ Distinctions from my readings:
 
 2. Reasoned opinion vs bare reaction: Some reviews or buy/don't buy discussions say why (mention mechanics, player count, playtime, comparison to another game). Others just say “great game” or “should I buy it?” with no detail.
 
-3. Creation vs discussion: Some posts show something the person made (3D-printed copies, custom expansions, original game designs, art) rather than discussing a game. These din't gave much information.
+3. Creation vs discussion: Some posts show something the person made (3D-printed copies, custom expansions, original game designs, art) rather than discussing a game. These don't give much to evaluate as a take.
 
 4. News vs opinion: Some posts relay information (Kickstarter/GameFound/Backerkit funding lists, new Exploding Kittens holiday edition, expansion announcements) with no personal stance.
 
@@ -65,38 +65,96 @@ Distinctions from my readings:
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `question`
 
 **Definition:**
+The poster needs an answer from the community: a game's rules, whether a game is available or worth buying, whether a seller is legitimate, or which game to play or find.
 
-**Example 1:**
+**Example 1:** This War of Mine: What is the second edition?
 
->
+> Hello there,
 
-**Example 2:**
+I am relatively new to the board game scene and experimenting with different games, and having a ton of fun. I don't understand the availablity sometimes, but thought that was fine.
 
->
+I was looking for This War of Mine because I adore the videogame and heard good things about the board game. But when reading into it, I saw that there was a gamefound campaign for the second edition.
 
-### `label_two`
+My question now: Is this second edition coming to retail? If so, when exactly? And is that one making the base game you can currently buy in stores kinda obsolete? I tried to read their FAQ but didn't understand anything.
+
+**Example 2:**Is Hive Interactive legit or this pledge still active?
+
+> Hey there,
+
+I need your help because this seems waaay too opaque for me. At the moment, Keep the Heroes Out expansions seem to be out of stock everywhere, but this pledge manager(?) seems to be active:
+https://www.hiveinteractive.net/projects/keep-the-heroes-out-dungeons-below-2nd-wave-488
+
+Does anyone have prior experience with this?
+
+Is the website legit?
+
+Is this pledge still "pledgeable"? I don't see any deadline here and the matching Kickstarter campaign seems to be finished already.
+
+I think this pledge has a low chance of failing to fulfill the requests (because it's mostly a reprint of already existing stuff) but still, there seem to be a lot of uncertain parts here.
+
+### `statement`
 
 **Definition:**
+The poster shares information, an announcement, or a list about games or the industry, and takes no personal stance on a game and asks nothing of the reader
 
-**Example 1:**
+**Example 1:** GAMA, the tabletop industry's trade association, told the FTC to ban surveillance pricing
 
->
+> GAMA, the tabletop industry's trade association, told the FTC to ban surveillance pricing
 
-**Example 2:**
+In August, the U.S. Federal Trade Commission (FTC) proposed an enforcement policy on personalized pricing — sometimes called "surveillance pricing" — and invited public comment. Nearly 4,600 responses came in, including a lengthy one from GAMA: The Tabletop Game Association, which represents both publishers and retailers (along with designers, manufacturers, and other groups).
 
->
+Personalized pricing is when a store shows different customers different prices for the same product based on their browsing history, purchase data, location, and so on. If the algorithm decides you would pay $70 for a game, you see $70. Someone else might see $60. The FTC's proposal would merely require businesses to disclose the practice — and GAMA's position is that disclosure is not enough. The practice should be prohibited outright because it's anti-consumer, whether or not anyone discloses that they use it.
+
+The part of GAMA's comment I found most interesting is that personalized pricing would put its members in conflict with one another, undermining trust between consumers and retailers and between consumers and publishers who sell direct, while tilting the field further toward large online sellers (e.g., Amazon). An industry association choosing to publicly support an individual human's side of a fight rather than its biggest members' side is not something you see every day.
+
+I went through GAMA's full statement and the surrounding context here: https://www.wericmartin.com/gama-opposes-personalized-pricing/
+
+Retailers in this hobby already operate on thin margins, and the tooling for this kind of pricing is getting cheaper every year. Whether the FTC's disclosure-only approach holds or whether more U.S. states will ban the practice (as three already have to some degree) matters to anyone who buys games — which is to say, everyone here.
+
+**Example 2:**Finally! First Kingdom Come full playthrough
+
+> For those who are into mediaval board game adventure…
+
+Paul Grogan is doing live playthrough on his YouTube of this highly anticipated Spiel Essen release Kingdom Come: Deliverance by Vlaada Chvatil and Tomas Holek
+
+https://www.youtube.com/watch?v=zQco0XqZwps
+
+### `experience`
+
+**Definition:**
+The poster describes their own experience of a game they have actually played and how they felt about it.
+
+**Example 1:**My first boardgame, Covenant!
+
+> I was already interested in starting the hobby and was thinking about buying a simpler game, but then I discovered this dwarf themed game with exactly the type of artwork I love, and as someone who really loves fantasy dwarfs I couldn't resist.
+
+As I never played any boardgame and my friends only had experience with monopoly I was worried about whether I would be able to explain the rules properly and whether they would actually enjoy the game, but to my surprise all of us had a really fun night! Playing the game solo for a bit on tabletop simulator really helped me to explain it to everyone.
+
+That said, I probably shouldn't have bought a 3.74 complexity weight game to our first boardgame experience, so I'm thinking about bringing The crew or Azul to the table as our next game.
+
+Also, we ended up ignoring the rule about gate positioning because I only remembered about it halfway through the game and we were a bit too drunk to care.
+
+**Example 2:** Bag of Dungeon 2 The Cursed Forest
+
+> Played BOD2 it is extremely fun and
+
+brutal game 😁. Good for Solo or multiplayer game, i recommend buying this game. 🔥🔥
+
+https://www.gunpowderstudios.co.uk/bod3d/?fbclid=IwdGRjcAVC1d1jbGNrBULVqGV4dG4DYWVtAjExAHBkb2YBc3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEe\_c2xngDxAh\_qCcZKl4RQYKqmCXrrjpgCb4y\_eFVUTIe6xTFPAQG8J0meAvw\_aem\_yhlLCqc\_Hgiqor1jpRTtUg
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `question` and `experience`
 
 **The decision rule I used every time:**
 
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
+
+If a post is mainly about the poster's own experience of a game they have played, label it `experience`, even when it ends with a question to the community (If the post still makes sense with the question deleted, it is `experience`).
 
 ---
 
