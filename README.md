@@ -171,12 +171,12 @@ I labelled the first 20 posts cold, by hand, using only my definitions. The rema
 
 **Counts per label:**
 
-| Label     | Count | Share |
-| --------- | ----- | ----- |
-| question  | 122   | 61 %  |
-| statement | 36    | 18%   |
-| experince | 42    | 21%   |
-| **Total** | 200   | 100%  |
+| Label      | Count | Share |
+| ---------- | ----- | ----- |
+| question   | 122   | 61 %  |
+| statement  | 36    | 18%   |
+| experience | 42    | 21%   |
+| **Total**  | 200   | 100%  |
 
 **Three hard cases**
 
@@ -231,7 +231,7 @@ device: mps (Apple Silicon GPU (MPS))
 torch: 2.14.1
 
 **Settings:** <!-- epochs, learning rate, batch size, seed -->
-3 labels: analysis, hot_take, reaction
+3 labels: question, statement, experience
 seed 42, 3 epochs, lr 2e-05, batch 16
 
 **Anything I changed from the defaults, and why:**
