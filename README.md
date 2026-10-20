@@ -164,18 +164,19 @@ If a post is mainly about the poster's own experience of a game they have played
      cases. -->
 
 **Where the posts came from:**
+All 200 posts were collected from r/boardgames (https://www.reddit.com/r/boardgames/), browsed through the /new feed and the top posts of the past week. Each post was pasted in full (title plus body) into `labels.csv`
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected? Say so plainly — the disclosure is required, not penalised. -->
+I labelled the first 20 posts cold, by hand, using only my definitions. The remaining 180 were pre-labelled by an AI tool that I gave my label definitions and my decision rule, and I then read them and corrected the ones I disagreed with. In `labels.csv`, the cold rows are marked `cold` and the pre-labelled rows are marked `pre-labeled` in the note column. My rule while labelling: if a post was the poster's own review or experience of a game, I labelled it `experience` even if it ended with a question, as long as removing the question still left the review making sense. If the poster was simply asking for information, game rules, or what game to play, I labelled it `question`. Anything that fit neither news and information posts, like someone announcing a new project or a game they built, something they painted for a game, or a fundraising event I labelled them as `statement`.
 
 **Counts per label:**
 
 | Label     | Count | Share |
 | --------- | ----- | ----- |
-|           |       |       |
-|           |       |       |
-|           |       |       |
-| **Total** |       | 100%  |
+| question  | 122   | 61 %  |
+| statement | 36    | 18%   |
+| experince | 42    | 21%   |
+| **Total** | 200   | 100%  |
 
 **Three hard cases**
 
@@ -185,26 +186,39 @@ Say so plainly — the disclosure is required, not penalised. -->
 **1.**
 
 > _The post:_
+> "Twilight Imperium on BGA!
+> I’m not sure how I feel about it. For a game that hits the table mostly at conventions, this seems cool to be able to get through a game faster. But, for me, the table interaction, voting on decrees, making verbal deals, and opportunities for roleplay are part of what make it epic.
+
+That gets lost online"
+
+> _Could have been:_ `experience` or `statement`
 >
-> _Could have been:_
->
-> _I chose, because:_
+> _I chose, because:_ I chose `statement`, because it is a generalised statement and it doesn't speak about a particular game the poster played or review anything they played.
 
 **2.**
 
 > _The post:_
->
-> _Could have been:_
->
-> _I chose, because:_
+> "What's your favorite game with a theme that you don't really enjoy?
+
+I personally really love Bullet's theme because I just so happen to be the core audience the game is looking for, an anime fan that likes Touhou and Board Games. I think the game translates the theme extremely well. Between all the modes it supports (Boss Battles, Team Battles, Competitive, and Score Attack) which are standard features of the video games it emulates and how the game plays to act like a Bullet Hell with how it makes you think on the spot, I think Bullet is actually a game that deserves a spot on the BGG Top 100. However I'm using it as my example because I know that it's a theme that the general board game audience don't really like. Turns out the people that are into Board Games tend to look for either the more "immersive" games like The LoTR and Dune games, or are looking for more "friendly" themes to play with family and friends like Fliptoons, Flip 7, and just the usual Catan/Monopoly. Really, just looking at Fernet in the second pic should give you an idea why. the core audience that Bullet wants to attract just aren't in the space as much so it usually just kinda gets tossed away to the side by most people.
+
+Fitting my actual question though I just could not get into Dune Imperium thematically because I hate the book but it tends to be the game I think of first when going into my LGS for Board Game Sunday."
+
+> _Could have been:_ `question` or `experience`
+
+> _I chose, because:_ I chose `experience`, because even though the headline feels like a question, the post itself is mainly the person sharing their experience and how it felt.
 
 **3.**
 
 > _The post:_
+> "Pillars of Fate vs. Zenith comparison
+> I love board games and play a wide range of genres and complexities. My wife likes games like Azul, Duel for Middle Earth, Spooktacular, Sea Salt and Paper, Patchwork, etc. so nothing too long or thinky.
+
+One of our favorite games is Schottentotten, we love to travel with it as well and our copy has traveled the world :). A small box and play area are important factors as well, which is why it is probably our most played game. Not a huge deal if it doesn’t travel well but wanted to mention it. These two games (Pillars of Fate and Zenith) caught my attention because they seem to share a similar concept and build out the tug of war over a central area/card/lane. I have not played either but I think both seem like a nice step up in terms of strategy/mechanics with a similar concept/goal but not too much added complexity. Do you think either of these would be a good fit or maybe a different in general? She also didn’t like Radlands."
+
+> _Could have been:_ `question` or `experience`
 >
-> _Could have been:_
->
-> _I chose, because:_
+> _I chose, because:_ I chose `experience`, because without the question the post still makes sense, it is mainly the poster's experience and it passes my delete the question test to figure out between question and an experience.
 
 ---
 
