@@ -227,6 +227,7 @@ One of our favorite games is Schottentotten, we love to travel with it as well a
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
 **Base model:**
+distilbert-base-uncased
 device: mps (Apple Silicon GPU (MPS))
 torch: 2.14.1
 
@@ -235,12 +236,11 @@ torch: 2.14.1
 seed 42, 3 epochs, lr 2e-05, batch 16
 
 **Anything I changed from the defaults, and why:**
+only one edit is section2 fill-ins.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Split sizes:** <!-- train / val / test, and per-label counts in the testsplit. If a label had fewer than about 8 in test, say so — it explains a lot of next unit's variance. -->
 
----
+Train 139, validation 31, test 30. In the test split: question 18, statement 6, experience 6. Statement and experience have only 6 each in test, fewer than about 8, so their per-label scores will move around between seeds.
 
 ## How I Used AI
 
@@ -268,6 +268,7 @@ of next unit's variance. -->
 - _What I changed:_ I merged `opinion` and `reaction` into a single `experience` label and wrote the delete the question rule for the question/experience boundary.
 
 **Pre-labelling disclosure:**
+Out of my 200 posts, I labelled the first 20 cold, by hand. The remaining 180 were pre-labelled by an AI tool that I gave my label definitions and decision rule, and I read them and corrected the ones I disagreed with. In labels.csv, the cold rows are marked cold and the pre-labelled rows are marked pre-labeled in the note column.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
