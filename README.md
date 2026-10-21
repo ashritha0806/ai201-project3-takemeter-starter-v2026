@@ -282,17 +282,28 @@ Out of my 200 posts, I labelled the first 20 cold, by hand. The remaining 180 we
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
 
-| Measure          | Baseline | Trained | Difference |
-| ---------------- | -------- | ------- | ---------- |
-| Overall accuracy |          |         |            |
-| Macro F1         |          |         |            |
-| F1 — `label_one` |          |         |            |
-| F1 — `label_two` |          |         |            |
+| Measure           | Baseline |
+| ----------------- | -------- |
+| Overall accuracy  | 0.300    |
+| Macro F1          | 0.223    |
+| F1 — `experience` | 0.323    |
+| F1 — `question`   | 0.348    |
+| F1 — `statement`  | 0.000    |
+
+| Measure           | Baseline | Trained | Difference |
+| ----------------- | -------- | ------- | ---------- |
+| Overall accuracy  | 0.300    | 0.600   | +0.300     |
+| Macro F1          | 0.223    | 0.250   | +0.027     |
+| F1 — `experience` | 0.323    | 0.000   | -0.323     |
+| F1 — `question`   | 0.348    | 0.750   | +0.402     |
+| F1 — `statement`  | 0.000    | 0.000   | +0.000     |
 
 **What I predicted before I looked:**
 
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+
+I think my trained model will beat the baseline on statement(F1 of 0.000). The baseline only had one line definition and it couldn’t pick out a single statement post. After training on my 200 labeled posts, the model should have seen enough examples for statement.
 
 **What the gap actually means:**
 
