@@ -310,6 +310,8 @@ I think my trained model will beat the baseline on statement(F1 of 0.000). The b
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
 
+Fine-tuning doubled overall accuracy from 0.300 to 0.600, but macro F1 only moved from 0.223 to 0.250, which shows the accuracy win is misleading. Almost all of the gain came from 'question', whose F1 jumped from 0.348 to 0.750. 'experience' got worse, dropping from 0.323 to 0.000, and 'statement' stayed at 0.000, so the model didn’t learn either of those labels. My prediction was wrong, I expected the gain on statement.
+
 ---
 
 ## Run Log — Before
