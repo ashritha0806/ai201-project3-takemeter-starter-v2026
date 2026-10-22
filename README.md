@@ -318,32 +318,29 @@ Fine-tuning doubled overall accuracy from 0.300 to 0.600, but macro F1 only move
 
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
-
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-| --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| --- | --- | --- | --- | --- | --- |
+| 1. Overall accuracy | ≥ 0.70 on every seed | 0.600 | 0.600 | 0.600 | Missed |
+| 2. `question` and `experience` F1 | Each ≥ 0.70 on every seed | `question` 0.750 / `experience` 0.000 | `question` 0.750 / `experience` 0.000 | `question` 0.750 / `experience` 0.000 | Missed |
+| 3. `statement` F1 | ≥ 0.55 on every seed | 0.000 | 0.000 | 0.000 | Missed |
+| 4. Label balance in labels.csv | No label above 60% of posts, and `statement` has at least 40 posts | `question` 61% (122/200), `statement` 36 posts | `question` 61% (122/200), `statement` 36 posts | `question` 61% (122/200), `statement` 36 posts | Missed |
+| 5. Accuracy on the most-confident third of test predictions | ≥ 0.80 on every seed | 0.900 | 0.800 | 0.900 | Met |
+
+Accuracy moved 0.000 across seeds. Stable enough to trust.
 
 ### Confusion matrix
 
-<!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
-     An image of a matrix earns nothing. -->
 
-| true \ predicted |     |     |     |
-| ---------------- | --- | --- | --- |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
+| true \ predicted | question | statement | experience |
+|---|---|---|---|
+| **question** | 18 | 0 | 0 |
+| **statement** | 6 | 0 | 0 |
+| **experience** | 6 | 0 | 0 |
+
 
 **My biggest off-diagonal number, and what it means:**
 
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
-     other way" is a direction, not just an error rate. -->
-
+The biggest off-diagonal numbers are tied at 6. 6 real `statement` posts and 6 real `experience` posts were both called `question`, and no post was predicted as `statement` or `experience` at all, so the model did not learn either of those boundaries and collapsed into predicting `question` for everything.
 ---
 
 ## Verdicts and Diagnoses
