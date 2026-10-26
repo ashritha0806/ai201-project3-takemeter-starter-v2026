@@ -318,30 +318,28 @@ Fine-tuning doubled overall accuracy from 0.300 to 0.600, but macro F1 only move
 
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-| --- | --- | --- | --- | --- | --- |
-| 1. Overall accuracy | ≥ 0.70 on every seed | 0.600 | 0.600 | 0.600 | Missed |
-| 2. `question` and `experience` F1 | Each ≥ 0.70 on every seed | `question` 0.750 / `experience` 0.000 | `question` 0.750 / `experience` 0.000 | `question` 0.750 / `experience` 0.000 | Missed |
-| 3. `statement` F1 | ≥ 0.55 on every seed | 0.000 | 0.000 | 0.000 | Missed |
-| 4. Label balance in labels.csv | No label above 60% of posts, and `statement` has at least 40 posts | `question` 61% (122/200), `statement` 36 posts | `question` 61% (122/200), `statement` 36 posts | `question` 61% (122/200), `statement` 36 posts | Missed |
-| 5. Accuracy on the most-confident third of test predictions | ≥ 0.80 on every seed | 0.900 | 0.800 | 0.900 | Met |
+
+| Criterion                                                   | Target                                                             | Seed 42                                        | Seed 7                                         | Seed 2024                                      | Verdict |
+| ----------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ------- |
+| 1. Overall accuracy                                         | ≥ 0.70 on every seed                                               | 0.600                                          | 0.600                                          | 0.600                                          | Missed  |
+| 2. `question` and `experience` F1                           | Each ≥ 0.70 on every seed                                          | `question` 0.750 / `experience` 0.000          | `question` 0.750 / `experience` 0.000          | `question` 0.750 / `experience` 0.000          | Missed  |
+| 3. `statement` F1                                           | ≥ 0.55 on every seed                                               | 0.000                                          | 0.000                                          | 0.000                                          | Missed  |
+| 4. Label balance in labels.csv                              | No label above 60% of posts, and `statement` has at least 40 posts | `question` 61% (122/200), `statement` 36 posts | `question` 61% (122/200), `statement` 36 posts | `question` 61% (122/200), `statement` 36 posts | Missed  |
+| 5. Accuracy on the most-confident third of test predictions | ≥ 0.80 on every seed                                               | 0.900                                          | 0.800                                          | 0.900                                          | Met     |
 
 Accuracy moved 0.000 across seeds. Stable enough to trust.
 
 ### Confusion matrix
 
-
 | true \ predicted | question | statement | experience |
-|---|---|---|---|
-| **question** | 18 | 0 | 0 |
-| **statement** | 6 | 0 | 0 |
-| **experience** | 6 | 0 | 0 |
-
+| ---------------- | -------- | --------- | ---------- |
+| **question**     | 18       | 0         | 0          |
+| **statement**    | 6        | 0         | 0          |
+| **experience**   | 6        | 0         | 0          |
 
 **My biggest off-diagonal number, and what it means:**
 
-The biggest off-diagonal numbers are tied at 6. 6 real `statement` posts and 6 real `experience` posts were both called `question`, and no post was predicted as `statement` or `experience` at all, so the model did not learn either of those boundaries and collapsed into predicting `question` for everything.
----
+## The biggest off-diagonal numbers are tied at 6. 6 real `statement` posts and 6 real `experience` posts were both called `question`, and no post was predicted as `statement` or `experience` at all, so the model did not learn either of those boundaries and collapsed into predicting `question` for everything.
 
 ## Verdicts and Diagnoses
 
@@ -377,7 +375,7 @@ The biggest off-diagonal numbers are tied at 6. 6 real `statement` posts and 6 r
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** **_ / 30 = _**%
+**Agreement rate:** **29 / 30 = 97**%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -401,25 +399,16 @@ The biggest off-diagonal numbers are tied at 6. 6 real `statement` posts and 6 r
 
 **1.**
 
-> _The post:_
+> _The post:_ Three of us ran the same session on the same day, different shoes, within 10 seconds of each other over 5 miles. I'm not saying shoes do nothing, but whatever they do was smaller than the noise between three people.
 >
-> _Staff said / I said:_
+> _Staff said / I said:_ analysis / hot_take
 >
-> _My call, and why:_
+> _My call, and why:_ Rule 1 says a fact counts for analysis only if it carries the argument, not if it just draws a conclusion. The important fact is that three runners finished within 10 seconds of each other in different shoes, and it partly carries the conclusion that shoes mattered less than the differences between people. But the post never measures that "noise". It guesses it from tiny gap, so I can see this as analysis (the fact does the work) or as a hot_take (the claim goes past the fact), and Rule 1 does not settle which one it is.
 >
-> _Which pile:_
-
-**2.**
-
-> _The post:_
->
-> _Staff said / I said:_
->
-> _My call, and why:_
->
-> _Which pile:_
+> _Which pile:_ c
 
 **What the pattern in my disagreements tells me:**
+I was too strict on this one post. Rule 1 only asks if the fact backs up the post's own point. I asked for more than that, and I marked it down for a small sample. The post was only about those three runners. The other 29 matched, so this was just one strict call, not a pattern.
 
 ---
 
