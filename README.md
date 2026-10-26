@@ -346,13 +346,13 @@ Accuracy moved 0.000 across seeds. Stable enough to trust.
 <!-- MET or MISSED against LAST UNIT's target. The target has to hold across
      all three seeds, not turn up sometimes. -->
 
-| #   | Criterion | Target | Verdict | How I decided |
-| --- | --------- | ------ | ------- | ------------- |
-| 1   |           |        |         |               |
-| 2   |           |        |         |               |
-| 3   |           |        |         |               |
-| 4   |           |        |         |               |
-| 5   |           |        |         |               |
+| #   | Criterion                                                | Target                                                             | Verdict | How I decided                                                                                                  |
+| --- | -------------------------------------------------------- | ------------------------------------------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------- |
+| 1   | Overall accuracy                                         | ≥ 0.70 on every seed                                               | MISSED  | 0.600 on seeds 42, 7, and 2024 — below 0.70 on all three, not just one                                         |
+| 2   | `question` and `experience` F1                           | Each ≥ 0.70 on every seed                                          | MISSED  | `question` 0.750 met it, `experience` 0.000 missed it on all three: the criteria needs each label              |
+| 3   | `statement` F1                                           | ≥ 0.55 on every seed                                               | MISSED  | 0.000 on all three seed                                                                                        |
+| 4   | Label balance in labels.csv                              | No label above 60% of posts, and `statement` has at least 40 posts | MISSED  | `question` is 122/200 = 61%, and `statement` is 36 posts, it fails both parts and this does not change by seed |
+| 5   | Accuracy on the most-confident third of test predictions | ≥ 0.80 on every seed                                               | MET     | 0.900, 0.800, and 0.900 at or above 0.80 on every seed(seed 7 ).                                               |
 
 **Diagnoses**
 
@@ -364,6 +364,16 @@ Accuracy moved 0.000 across seeds. Stable enough to trust.
      ⚠️ Use your agreement report as evidence. It is the only instrument you
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
+
+My agreement check does not explain this as a labelling problem: I matched staff on 29/30, and the one disagreement was on a different label pair under a different taxonomy.
+
+Criterion 1 (overall accuracy): The model collapsed to the majority class. The confusion matrix shows it predicted question for all 30 test posts, and 0.600 is exactly the question share of the test set (18/30). So the score reflects the label mix, not any real skill at telling the labels apart.
+
+Criterion 2 (question and experience): Same collapse, plus too few experience examples (42 vs 122 question). The matrix shows zero experience predictions, so this isn’t a close call on the question/experience boundary. The model never tried experience at all. question F1 of 0.750 passed only because everything got called question.
+
+Criterion 3 (statement F1): Same collapse, plus too few statement examples (36 total, about 6 in the test set). All 6 real statement posts were predicted as question, which is why F1 is 0.000 on every seed.
+
+Criterion 4 (label balance): This is a dataset problem, not a model problem. question is 122/200 = 61% and statement is only 36 posts, so it fails both parts. r/boardgames in my sample is question heavy and statement posts are rarer in the source. No seed or training change can fix a count in labels.csv.
 
 ---
 
