@@ -425,23 +425,29 @@ I was too strict on this one post. Rule 1 only asks if the fact backs up the pos
 ## The Improvement
 
 **What I changed:**
+Added 30 new `statement` posts to labels.csv, with note `milestone5-added`. Dataset went from 200 posts to 230 posts: statement 36 to 66. No other changes same seeds (42, 7, 2024), same epochs, same learning rate, same model, same number of experience and questions.
 
 **Which diagnosis pointed at it:**
+Criteria 3 (only 36 statement examples) and Criteria 4 (imbalance).
+The model had collapsed to predicting `question` for all test posts, and the minority labels were too thin statement had only 36 posts in total, about 6 in the test set.
 
 ### Run Log — After
 
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-| --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| Criterion                        | Target                         | Seed 42          | Seed 7           | Seed 2024        | Verdict |
+| -------------------------------- | ------------------------------ | ---------------- | ---------------- | ---------------- | ------- |
+| 1. Overall accuracy              | ≥ 0.70                         | 0.543            | 0.543            | 0.629            | Missed  |
+| 2. Question F1 and Experience F1 | ≥ 0.70 each                    | Q 0.704, E 0.000 | Q 0.704, E 0.000 | Q 0.745, E 0.000 | Missed  |
+| 3. Statement F1                  | ≥ 0.55                         | 0.000            | 0.000            | 0.462            | Missed  |
+| 4. Dataset balance               | No label > 60%, statement ≥ 40 | —                | —                | —                | Met     |
+| 5. Most-confident-third accuracy | ≥ 0.80                         | 1.000            | 0.818            | 0.818            | Met     |
+
+Dataset(After 230 total posts): Question 122/230 = 53%, statement 66, experience 42.
 
 **Did it help, and how do I know:**
 
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
+**Did it help, and how do I know**
+
+Yes but partially. Criteria 4 went from Missed to Met, but that's just a row count in labels.csv, so it says nothing about the model. Statement F1 was 0.000 on all seeds before and is now 0.000, 0.000 and 0.462, so one seed predicted something other than `question`, but it's still under 0.55 and Criteria 1, 2 and 3 are still Missed. Experience F1 stayed at 0.000, which fits since I only added `statement` posts. Also, the test set grew from 30 to 35 posts, so accuracy isn't on the same posts always guessing `question` now scores 19/35 = 0.543 that explains the drop.
 
 ---
 
