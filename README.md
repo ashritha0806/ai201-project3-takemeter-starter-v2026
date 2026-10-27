@@ -267,8 +267,15 @@ Train 139, validation 31, test 30. In the test split: question 18, statement 6, 
 
 - _What I changed:_ I merged `opinion` and `reaction` into a single `experience` label and wrote the delete the question rule for the question/experience boundary.
 
+**Moment 3**
+
+- _What I asked for:_ I asked the AI to check my new labels.csv before I ran it, did I label the 30 new statement posts right, or did I miss anything?
+- _What came back:_ It said the file was structurally right (230 rows, 66 statement, no blanks, no duplicates, first 200 rows unchanged) but 1 of the 30 new rows were mislabelled as statement. It also flagged 2 borderline rows I had kept.
+
+- _What I changed:_ I replaced one clear mislabels with information post, kept the 2 borderline rows, and re-checked the counts (230 total, 66 statement, 30 milestone5-added) before running Section 6.
+
 **Pre-labelling disclosure:**
-Out of my 200 posts, I labelled the first 20 cold, by hand. The remaining 180 were pre-labelled by an AI tool that I gave my label definitions and decision rule, and I read them and corrected the ones I disagreed with. In labels.csv, the cold rows are marked cold and the pre-labelled rows are marked pre-labeled in the note column.
+Out of my 230 posts, I labelled the first 20 cold, by hand. The remaining 180 were pre-labelled by an AI tool that I gave my label definitions and decision rule, and I read them and corrected the ones I disagreed with. The last 30 were hand-labelled by me for Milestone 5 and checked by an AI tool before I ran them. In labels.csv, the cold rows are marked cold and the pre-labelled rows are marked pre-labeled and the new rows are marked milestone5-added in the note column.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
@@ -443,9 +450,27 @@ The model had collapsed to predicting `question` for all test posts, and the min
 
 Dataset(After 230 total posts): Question 122/230 = 53%, statement 66, experience 42.
 
-**Did it help, and how do I know:**
+Accuracy moved 0.086 across seeds. Macro F1 moved 0.168 across seeds. Less stable than before, when both spreads were 0.000.
 
-**Did it help, and how do I know**
+Confusion matrix — After, Seeds 42 and 7 (identical):
+
+| True \ Predicted | question | statement | experience |
+| ---------------- | -------- | --------- | ---------- |
+| question         | 19       | 0         | 0          |
+| statement        | 10       | 0         | 0          |
+| experience       | 6        | 0         | 0          |
+
+Confusion matrix — After, Seed 2024:
+
+| True \ Predicted | question | statement | experience |
+| ---------------- | -------- | --------- | ---------- |
+| question         | 19       | 0         | 0          |
+| statement        | 7        | 3         | 0          |
+| experience       | 6        | 0         | 0          |
+
+Biggest off-diagonal confusion: statement posts predicted as question 10 on Seeds 42 and 7, 7 on Seed 2024. Experience posts predicted as question is 6 on all three seeds.
+
+**Did it help, and how do I know:**
 
 Yes but partially. Criteria 4 went from Missed to Met, but that's just a row count in labels.csv, so it says nothing about the model. Statement F1 was 0.000 on all seeds before and is now 0.000, 0.000 and 0.462, so one seed predicted something other than `question`, but it's still under 0.55 and Criteria 1, 2 and 3 are still Missed. Experience F1 stayed at 0.000, which fits since I only added `statement` posts. Also, the test set grew from 30 to 35 posts, so accuracy isn't on the same posts always guessing `question` now scores 19/35 = 0.543 that explains the drop.
 
@@ -455,8 +480,29 @@ Yes but partially. Criteria 4 went from Missed to Met, but that's just a row cou
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+### Criterion 1 — Overall accuracy (0.543, 0.543, 0.629; target ≥ 0.70)
+
+What I would do: run another improvement round with more balanced data, so the model is not still learning from 122 question posts against 42 experience posts, then re-run the three seed test.
+Why I stopped: Unit scope and ran out of time.
+
+### Criterion 2 — Question F1 and Experience F1 (target ≥ 0.70 each)
+
+Question passes on all seeds (0.704, 0.704, 0.745). Experience is 0.000 on all seeds.
+What I would do: add many more experience posts, especially posts that describe a game I played AND ask a question, so the model learns the delete-the-question rule from training examples, not just from my definitions.
+Why I stopped: Unit scope and ran out of time.
+
+### Criterion 3 — Statement F1 (0.000, 0.000, 0.462; target ≥ 0.55)
+
+What I would do: add more statement posts beyond 66, especially announcements that look personal or opinion-like, and re-check the borderline personal announcements I kept.
+Why I stopped: Unit scope and ran out of time.
+
 **The gap between what I meant my labels to capture and what the model
 learned:**
+**The gap between what I meant my labels to capture and what the model actually learned**
+
+**The gap between what I meant my labels to capture and what the model actually learned**
+
+I wanted three jobs that is `question` for posts that need an answer, `statement` for sharing info with no stance and no ask, and `experience` for "I played this and here's how it felt." The model learned one: when unsure, say `question`. It got all 19 `question` posts right on every seed, but sent all 6 `experience` posts and most `statement` posts (10 of 10 on Seeds 42 and 7, 7 of 10 on Seed 2024) to `question` too.
 
 <!-- Two sentences. Your confusion matrix is the evidence. -->
 
