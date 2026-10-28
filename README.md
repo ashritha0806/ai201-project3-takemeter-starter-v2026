@@ -496,10 +496,6 @@ Why I stopped: Unit scope and ran out of time.
 What I would do: add more statement posts beyond 66, especially announcements that look personal or opinion-like, and re-check the borderline personal announcements I kept.
 Why I stopped: Unit scope and ran out of time.
 
-**The gap between what I meant my labels to capture and what the model
-learned:**
-**The gap between what I meant my labels to capture and what the model actually learned**
-
 **The gap between what I meant my labels to capture and what the model actually learned**
 
 I wanted three jobs that is `question` for posts that need an answer, `statement` for sharing info with no stance and no ask, and `experience` for "I played this and here's how it felt." The model learned one: when unsure, say `question`. It got all 19 `question` posts right on every seed, but sent all 6 `experience` posts and most `statement` posts (10 of 10 on Seeds 42 and 7, 7 of 10 on Seed 2024) to `question` too.
